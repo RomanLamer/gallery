@@ -25,7 +25,10 @@ const model = document.querySelector('.model');
 model.addEventListener('click',()=>{
     model.style.display = 'none';
 })
-
+document.getElementById('quit').addEventListener('click',()=>{
+    document.querySelector('.addPhoto').style.display = "none"
+})
 document.getElementById('addNewPhoto').addEventListener('click',()=>{
+    document.querySelector('.addPhoto').style.display="flex"
     
 })

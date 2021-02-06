@@ -98,13 +98,77 @@ table {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center; }
   .addPhoto__wrapper {
     background-color: #fff;
     width: 80%;
-    height: 80%; }
+    height: 80%;
+    position: relative; }
+  .addPhoto__quit {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2vw;
+    cursor: pointer; }
+  .addPhoto__input {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .addPhoto__input h1 {
+      margin-top: -40px;
+      padding: 20px;
+      font-size: 2vw;
+      font-family: "Sriracha", cursive; }
+    .addPhoto__input div i input {
+      font-family: consolas;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      width: 40vw;
+      font-size: 1.3vw;
+      margin: 2px 10px;
+      cursor: pointer; }
+    .addPhoto__input div button {
+      white-space: nowrap;
+      padding: 2px 20px;
+      outline: none;
+      font-family: "Sriracha", cursive;
+      font-size: 1.3vw;
+      background-color: rgba(0, 0, 0, 0.671);
+      border: 1px solid #fee715ff;
+      color: #fee715ff;
+      cursor: pointer; }
+    .addPhoto__input div i {
+      position: relative; }
+    .addPhoto__input div i::before {
+      border-bottom: 1px solid lightgray;
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(0, 0, 0, 0.671);
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transform-origin: right center;
+      transform-origin: right center;
+      -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+    .addPhoto__input div i:hover::before {
+      -webkit-transition-duration: .7s;
+      transition-duration: .7s;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transform-origin: left center;
+      transform-origin: left center; }
 
 body {
   display: flex; }
