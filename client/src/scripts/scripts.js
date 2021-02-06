@@ -1,10 +1,12 @@
 window.addEventListener('load',async ()=>{
     try{
-    const data = await (await fetch('/imagesDB')).json();
-    if (data) {
+    const files = await (await fetch('/imagesDB')).json();
+    if (files) {
         let HTML = ``;
-        for (let i = 0; i < data.quantity; i++) {
-            HTML+= `<div class="gallery__item" style="background-image:url('./images/${data.files[i]}')"></div>`;
+        console.log();
+        for (let i = 0; i < files.data.length; i++) {
+            let typpeOfLink = files.data[i].link.split('://').length;
+            HTML+= `<div class="gallery__item" style="background-image:url('${typpeOfLink > 1?`${files.data[i].link}`:`./images/${files.data[i].link}`}')"></div>`;
         }
         document.querySelector('.gallery').innerHTML = HTML;
     }
@@ -22,4 +24,8 @@ window.addEventListener('load',async ()=>{
 const model = document.querySelector('.model');
 model.addEventListener('click',()=>{
     model.style.display = 'none';
+})
+
+document.getElementById('addNewPhoto').addEventListener('click',()=>{
+    
 })

@@ -1,19 +1,30 @@
-body{
-  background-color: #505050;
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 100vh;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: -1;
+  }
 }
-.gallery{
+.gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap:20px;
-  width: 1140px;
-  height: 620px;
-  &__item{
-    background-size: contain;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 80%;
+  height: 80%;
+  &__item {
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;

@@ -9,12 +9,22 @@ router.get('/',(req,res)=>{
 })
 
 router.get('/imagesDB',(req,res)=>{
+    let data = JSON.parse(fs.readFileSync('images/data.json'));
+    data.forEach(link=>{
+            if(!link.date){
+                link.date = new Date();
+            }        
+    })
     fs.readdir('images',(err,files)=>{
-        res.send(JSON.stringify({
-            quantity:files.length,
-            files:files
-        }))
-    });
+        files.forEach(file=>{
+            let exist = data.some(el => el.link === file);
+            const ext = file.split('.').pop();
+            !exist?ext != 'json'?data.push({link:file,date:new Date()}):null:null;
+        }) 
+        fs.writeFile(`images/data.json`,JSON.stringify(data),()=>{})
+ })
+ res.send(JSON.stringify({
+    data:data
+ }))
 })
-
 module.exports = router;

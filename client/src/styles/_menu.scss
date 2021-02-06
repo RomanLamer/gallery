@@ -1,0 +1,82 @@
+body {
+    display: flex;
+}
+.nav {
+    width: 23%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-right: 1px solid #fee715ff;
+    &__logo {
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #545b60;
+        flex-direction: column;
+        border-bottom: 1px solid #fee715ff;
+        & i {
+            font-size: 3vw;
+            font-family: "Sriracha", cursive;
+            width: 7vw;
+            height: 7vw;
+            color: rgba(0, 0, 0, 0.671);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #fee715ff;
+        }
+    }
+    &__menu {
+        &--header {
+            height: 6vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Sriracha", cursive;
+            font-size: 1.7vw;
+            background-color: rgba(0, 0, 0, 0.671);
+            color: #fee715ff;
+            border-bottom: 1px solid #fee715ff;
+        }
+        &--item {
+            font-family: "Sriracha", cursive;
+            margin: 1vw 1.5vh;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+            cursor: pointer;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 10%;
+                width: 10%;
+                height: 40%;
+                border-top-right-radius: 5px;
+                border-right: 1px solid #fee715ff;
+                border-top: 1px solid #fee715ff;
+                transition: .7s ease;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 10%;
+                width: 10%;
+                height: 40%;
+                border-bottom-left-radius: 5px;
+                border-left: 1px solid #fee715ff;
+                border-bottom: 1px solid #fee715ff;
+                transition: .7s ease;
+            }
+        }:hover::before,:hover::after{
+            width: 80%;
+            border-radius: 5px;
+            height: 100%;
+        }
+    }
+}
