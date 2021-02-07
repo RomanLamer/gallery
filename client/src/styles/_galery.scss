@@ -1,10 +1,14 @@
 .main {
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 100vh;
   position: relative;
+  background-position: center center;
+  filter: grayscale(20%);
+  background-size: cover;
   &::before {
     content: "";
     position: absolute;
@@ -17,6 +21,7 @@
   }
 }
 .gallery {
+filter: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;

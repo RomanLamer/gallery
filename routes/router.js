@@ -27,4 +27,16 @@ router.get('/imagesDB',(req,res)=>{
     data:data
  }))
 })
+
+router.post('/add/photo',(req,res)=>{
+    const {link} = req.body
+    if (link.split('/').length > 1) {
+        let data = JSON.parse(fs.readFileSync('images/data.json'));
+        data.push({link:link,date:new Date()})
+        fs.writeFile(`images/data.json`,JSON.stringify(data),()=>{})
+    }else{
+        res.sendStatus(400)
+    }
+})
+
 module.exports = router;
